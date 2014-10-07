@@ -8,17 +8,20 @@
 //  response.send('Hello World!')
 //})
 
-//app.listen(app.get('port'), function() {
-//  console.log("Node app is running at localhost:" + app.get('port'))
-//})
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
 
 
 var express = require('express');
 var app = express();
+app.set('port', (process.env.PORT || 5000))
 app.get('/', function(req, res) { 
 	res.send('Geeky Theory probando express.js');
  }); 
 app.get('/prueba', function(req, res) { 
 	res.send('Geeky Theory probando express.js en /prueba'); 
 }); 
-app.listen(5000); 
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
