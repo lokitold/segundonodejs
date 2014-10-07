@@ -7,6 +7,9 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function(request, response) {
   response.send('Hello World!')
 })
+app.get('/prueba', function(request, response) {
+  response.send('Geeky Theory probando express.js en /prueba')
+})
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
