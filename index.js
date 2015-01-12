@@ -36,8 +36,9 @@ app = express(),
 server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
-//console.log(process.env.PORT);
-//console.log(process.env.IP);
+console.log(process.env.PORT);
+console.log(process.env.IP);
+console.log(process.env.CLEARDB_DATABASE_URL);
 
 server.listen(process.env.PORT,process.env.IP);
 //server.listen(5000);
