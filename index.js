@@ -40,6 +40,6 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
-        io.sockets.emit('newMessage',{msg : data});
+        io.sockets.emit('newMessage',{msg :  auth_split['0']});
     });
 });
