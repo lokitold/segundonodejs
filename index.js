@@ -36,15 +36,16 @@ app = express(),
 server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
-app.set('port', (process.env.PORT || 5000))
-
+app.set('port', (process.env.PORT || 5000));
+app.set('ip', (process.env.IP || '127.0.0.1'));
+app.set('database', (process.env.CLEARDB_DATABASE_UR || 'mysql://bb5dffb23f4faf:94b8c1b2@us-cdbr-iron-east-01.cleardb.net/heroku_cd1d6fb6d0a6d66?reconnect=true'));
 
 var url = require('url');
-var parsed = url.parse(process.env.CLEARDB_DATABASE_URL);
+var parsed = url.parse(app.get('database'));
+console.log(parsed.hostname);
 
 
-/*
-var mysql      = require('mysql');
+var mysql      = require('mysql');/*
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'me',
@@ -57,15 +58,11 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
   if (err) throw err;
 
   console.log('The solution is: ', rows[0].solution);
-});*/
+});
 
-connection.end();
+connection.end();*/
 
-//console.log(process.env.PORT);
-//console.log(process.env.IP);
-
-server.listen(app.get('port'),process.env.IP);
-//server.listen(5000);
+server.listen(app.get('port'),app.get('ip'));
 
 app.get('/',function(req,res){
     res.sendfile(__dirname + '/index.html');
