@@ -12,7 +12,7 @@ var parsed = url.parse(app.get('database'));
 auth = parsed.auth;
 auth_split = auth.split(":"); 
 
-
+/*
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -31,7 +31,7 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
 });
 
 connection.end();
-
+*/
 server.listen(app.get('port'));
 
 app.get('/',function(req,res){
