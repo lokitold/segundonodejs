@@ -35,7 +35,7 @@ var express = require('express'),
 app = express(),
 server = require('http').createServer(app),
 io = require('socket.io').listen(server);
-url = CLEARDB_DATABASE_URL;
+url = url.parse(CLEARDB_DATABASE_URL);
 
 //console.log(process.env.PORT);
 //console.log(process.env.IP);
