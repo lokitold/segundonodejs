@@ -39,7 +39,7 @@ io = require('socket.io').listen(server);
 console.log(process.env.PORT);
 console.log(process.env.IP);
 console.log(process.env.CLEARDB_DATABASE_URL);
-emit=process.env.CLEARDB_DATABASE_URL;
+emit=process.env.IP;
 
 server.listen(process.env.PORT,process.env.IP);
 //server.listen(5000);
