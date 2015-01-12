@@ -37,7 +37,8 @@ server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
 var url = require('url');
-var parsed = url.parse(CLEARDB_DATABASE_URL);
+databasestring = CLEARDB_DATABASE_URL;
+//var parsed = url.parse();
 //var parsed = url.parse("mysql://bb5dffb23f4faf:94b8c1b2@us-cdbr-iron-east-01.cleardb.net/heroku_cd1d6fb6d0a6d66?reconnect=true");
 
 //console.log(process.env.PORT);
@@ -52,6 +53,6 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
-        io.sockets.emit('newMessage',{msg : parsed.hostname});
+        io.sockets.emit('newMessage',{msg : databasestring});
     });
 });
