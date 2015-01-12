@@ -31,7 +31,7 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
 
 connection.end();
 */
-mysql = 2:
+//mysql = 2:
 server.listen(app.get('port'));
 
 app.get('/',function(req,res){
@@ -41,6 +41,6 @@ app.get('/',function(req,res){
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
         io.sockets.emit('newMessage',{msg : data});
-        io.sockets.emit('mysql',{msg : mysql});
+  //      io.sockets.emit('mysql',{msg : mysql});
     });
 });
