@@ -5,7 +5,7 @@ io = require('socket.io').listen(server);
 
 app.set('port', (process.env.PORT || 5000));
 //app.set('ip', (process.env.IP || '127.0.0.1'));
-app.set('database', (process.env.CLEARDB_DATABASE_UR || 'mysql://root:123456@localhost/heroku_cd1d6fb6d0a6d66?reconnect=true'));
+app.set('database', (process.env.CLEARDB_DATABASE_URL || 'mysql://root:123456@localhost/heroku_cd1d6fb6d0a6d66?reconnect=true'));
 
 var url = require('url');
 var parsed = url.parse(app.get('database'));
