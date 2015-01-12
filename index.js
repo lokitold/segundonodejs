@@ -53,6 +53,6 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
-        io.sockets.emit('newMessage',{msg : databasestring});
+        io.sockets.emit('newMessage',{msg : data});
     });
 });
