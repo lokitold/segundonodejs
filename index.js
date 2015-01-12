@@ -37,7 +37,7 @@ server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
 var url = require('url');
-var parse = url.parse(CLEARDB_DATABASE_URL);
+var parsed = url.parse(CLEARDB_DATABASE_URL);
 
 //console.log(process.env.PORT);
 //console.log(process.env.IP);
@@ -51,6 +51,6 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
-        io.sockets.emit('newMessage',{msg : parse.hostname});
+        io.sockets.emit('newMessage',{msg : parsed.username});
     });
 });
