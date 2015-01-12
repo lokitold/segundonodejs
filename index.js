@@ -12,6 +12,7 @@ var parsed = url.parse(app.get('database'));
 auth = parsed.auth;
 auth_split = auth.split(":"); 
 
+
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -39,6 +40,6 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
-        io.sockets.emit('newMessage',{msg :  auth_split['0']});
+        io.sockets.emit('newMessage',{msg : data});
     });
 });
