@@ -36,13 +36,35 @@ app = express(),
 server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
+app.set('port', (process.env.PORT || 5000))
+
+
 var url = require('url');
 var parsed = url.parse(process.env.CLEARDB_DATABASE_URL);
+
+
+/*
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'me',
+  password : 'secret'
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log('The solution is: ', rows[0].solution);
+});*/
+
+connection.end();
 
 //console.log(process.env.PORT);
 //console.log(process.env.IP);
 
-server.listen(process.env.PORT,process.env.IP);
+server.listen(app.get('port'),process.env.IP);
 //server.listen(5000);
 
 app.get('/',function(req,res){
