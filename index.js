@@ -32,6 +32,7 @@
 
 
 var express = require('express'),
+var url = require('url'),
 app = express(),
 server = require('http').createServer(app),
 io = require('socket.io').listen(server);
