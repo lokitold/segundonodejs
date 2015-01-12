@@ -39,6 +39,7 @@ io = require('socket.io').listen(server);
 console.log(process.env.PORT);
 console.log(process.env.IP);
 console.log(process.env.CLEARDB_DATABASE_URL);
+emit=process.env.CLEARDB_DATABASE_URL;
 
 server.listen(process.env.PORT,process.env.IP);
 //server.listen(5000);
@@ -49,6 +50,6 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     socket.on('sendMessage',function(data){
-        io.sockets.emit('newMessage',{msg : data});
+        io.sockets.emit('newMessage',{msg : emit});
     });
 });
